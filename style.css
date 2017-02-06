@@ -1,23 +1,30 @@
 body {
-    background-color: grey;
-    color: #BDBDBD;
+    background-color: #9E9E9E;
+    color: #424242;
 }
 
 #logo {
     border-radius: .5em;
 }
 
+.log1 {
+    border-color: #69F0AE;
+}
+
 .log2 {
-    background-color: #69F0AE;
+    background-color: ;
+    color: white;
 }
 
 .md-accent{
-  /*padding: 50px;
-  margin: 20px;*/
-  color: #455A64 !important;
+  color: #69F0AE !important;
 }
 
 md-nav-bar md-nav-ink-bar{
   color: #69F0AE;
   background-color: #69F0AE;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    border-color: #69F0AE;
 }
