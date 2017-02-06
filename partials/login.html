@@ -1,0 +1,25 @@
+<div layout="column" layout-align="start start">
+<h1 class="md-display-3">GameSole</h1>
+</div>
+<div layout="column" layout-align="center center">
+  <img ng-src="https://s-media-cache-ak0.pinimg.com/236x/c2/a9/c9/c2a9c9621175a6f04804d0d192a787b0.jpg" class="md-display-4" id="logo">
+<form name="userNameForm" name="passwordForm" ng-submit="login()">
+  <md-input-container>
+    <label>Username</label>
+    <input name="userName" ng-model="email" md-input-maxlength="100" required>
+    <div ng-messages="userNameForm.userName.$error">
+      <div ng-message="required">This is required!</div>
+    </div>
+  </md-input-container>
+  <br>
+  <md-input-container>
+    <label>Password</label>
+    <!-- <input name="password" ng-model="password" required> -->
+    <input ng-hide="showpassword" type="password" ng-model="password"  required="">
+    <div ng-messages="passwordForm.password.$error">
+      <div ng-message="required">This is required!</div>
+    </div>
+      <md-button type="submit" class="log1">Login</md-button>
+  </md-input-container>
+</form>
+</div>
