@@ -1,0 +1,23 @@
+body {
+    background-color: grey;
+    color: #BDBDBD;
+}
+
+#logo {
+    border-radius: .5em;
+}
+
+.log2 {
+    background-color: #69F0AE;
+}
+
+.md-accent{
+  /*padding: 50px;
+  margin: 20px;*/
+  color: #455A64 !important;
+}
+
+md-nav-bar md-nav-ink-bar{
+  color: #69F0AE;
+  background-color: #69F0AE;
+}
