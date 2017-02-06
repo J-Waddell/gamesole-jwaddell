@@ -1,1 +1,3 @@
-console.log("up,down,left,left,start")
+console.log("up,down,left,right,start")
+
+const app = angular.module('game-sole', ['ngRoute', 'ngMaterial'])
