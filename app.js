@@ -12,6 +12,18 @@ const app = angular.module('game-sole', ['ngRoute', 'ngMaterial'])
   };
   firebase.initializeApp(config);
 
+  // auth check & redirect if !user
+    const checkForAuth = {
+      checkForAuth ($location) {
+        const authReady = firebase.auth().onAuthStateChanged(user => {
+          authReady()
+          if (!user) {
+            $location.url('/')
+          }
+        })
+      }
+    }
+
 app.config(($routeProvider, $locationProvider) => {
     $locationProvider.hashPrefix('')
     $routeProvider

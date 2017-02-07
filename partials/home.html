@@ -1,1 +1,31 @@
-<h3>Home</h3>
+<!-- <div layout="row" layout-align="end start">
+    <h1>GameSole</h1>
+</div> -->
+
+<!-- logo alignment -->
+<!-- <md-button>
+   <img class="png-icon" src="/Users/jesse/Desktop/GameSole Logo-1 (dragged).tiff" style="width: 24px; height: 24px;">
+</md-button> -->
+
+<!-- navbar -->
+<div flex layout="column" role="main" class="md-whiteframe-z2">
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <md-button ng-click="main.toggleLeft()" hide-gt-md aria-label="Open Menu">
+          <ng-md-icon icon="menu"></ng-md-icon>
+        </md-button>
+        <h2 class="header show">Search</h2>
+        <span flex></span>
+        <form class="search-box">
+          <input class="search-box-input" type="text" required="required">
+          <button type="reset" class="delete"></button>
+        </form>
+      </div>
+    </md-toolbar>
+
+    <div flex layout="column">
+      <!-- Example of what would be inside a view template -->
+      <div flex layout="column" class="md-padding content">
+        <p>Welcome to the GameSole!</p>
+      </div><!-- end view -->
+    </div>
