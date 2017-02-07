@@ -2,6 +2,28 @@ console.log("up,down,left,right,start")
 
 const app = angular.module('game-sole', ['ngRoute', 'ngMaterial'])
 
+ // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAb966Kn8KS1mb9jxnI4AeIEwU_k5N04fQ",
+    authDomain: "gamesole-d397d.firebaseapp.com",
+    databaseURL: "https://gamesole-d397d.firebaseio.com",
+    storageBucket: "gamesole-d397d.appspot.com",
+    messagingSenderId: "512350570420"
+  };
+  firebase.initializeApp(config);
+
+  // auth check & redirect if !user
+    const checkForAuth = {
+      checkForAuth ($location) {
+        const authReady = firebase.auth().onAuthStateChanged(user => {
+          authReady()
+          if (!user) {
+            $location.url('/')
+          }
+        })
+      }
+    }
+
 app.config(($routeProvider, $locationProvider) => {
     $locationProvider.hashPrefix('')
     $routeProvider
