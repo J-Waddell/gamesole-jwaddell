@@ -1,7 +1,7 @@
 // homepage navbar js
-var Nav = angular.module('myApp', ['ngMaterial', 'ngMdIcons']);
+// var Nav = angular.module('myApp', ['ngMaterial', 'ngMdIcons']);
 
-Nav.controller('mainController', ['$mdSidenav', function($mdSidenav) {
+app.controller('HomeCtrl', function($mdSidenav, searchFactory) {
   var vm = this;
   
   vm.toggleLeft = function() {
@@ -11,7 +11,7 @@ Nav.controller('mainController', ['$mdSidenav', function($mdSidenav) {
   vm.close = function() {
     $mdSidenav('left-nav').close();
   }
-}]);
+});
 
 var header = document.querySelector(".header");
 var input = document.querySelector(".search-box-input");
@@ -37,3 +37,12 @@ function showHeaderOnClose() {
 // input.addEventListener("focus", hideHeader);
 // input.addEventListener("blur", showHeader);
 // close.addEventListener("click", showHeaderOnClose);
+
+// search factory
+app.factory('searchFactory', function($http) {
+  return {
+    getList : () => {
+      return $http.get('https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search')
+    }
+  }
+})

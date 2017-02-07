@@ -32,7 +32,7 @@ app.config(($routeProvider, $locationProvider) => {
             templateUrl: 'partials/login.html'
         })
         .when('/home', {
-            contorller: 'HomeCtrl',
+            controller: 'HomeCtrl',
             templateUrl: 'partials/home.html'
         })
         .otherwise({redirectTo: '/'})
