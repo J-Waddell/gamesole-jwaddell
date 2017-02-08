@@ -1,7 +1,13 @@
 // homepage navbar js
 // var Nav = angular.module('myApp', ['ngMaterial', 'ngMdIcons']);
 
-app.controller('SearchCtrl', function($mdSidenav, searchFactory) {
+app.controller('SearchCtrl', function($scope, $mdSidenav, $http) {
+  $http.defaults.headers.common['X-Mashape-Key'] = 'jfS9AMR1wnmshvZpFflvUUg11Tnpp1iysnujsnLAfEXBSJCk9e';
+  $http.get('https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=the+last+of+us')
+    .then(function(gameData) {
+      console.log(gameData.data.result)
+      $scope.gameData = gameData.data.result
+    })
   var vm = this;
   
   vm.toggleLeft = function() {
@@ -10,6 +16,14 @@ app.controller('SearchCtrl', function($mdSidenav, searchFactory) {
   
   vm.close = function() {
     $mdSidenav('left-nav').close();
+  }
+
+  $scope.Showme = function(results) {
+      console.log(results)
+      let gameObj = {
+        data: $scope.data,
+        result: $scope.result
+      }
   }
 });
 
@@ -45,10 +59,16 @@ function showHeaderOnClose() {
 
 
 // search factory
-app.factory('searchFactory', function($http) {
-  return {
-    getList : () => {
-      return $http.get('https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search')
-    }
-  }
-})
+// app.factory('searchFactory', function($http) {
+//   return {
+//     getList : () => {
+//       return $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search/${$scope.results}.json`)
+//     }
+//   }
+// })
+
+// app.run(function($http) {
+// })
+  
+//   app.run(function($http) {
+// });

@@ -28,6 +28,12 @@
     </div>
 </div>
 
+<ul ng-repeat="(key, item) in gameData">
+    <li>{{item.gameData}}</li>
+    <li>{{item.data}}</li>
+    <li>{{item.result}}</li>
+</ul>
+
 <div layout="row" layout-align="end start">
 <a href="http://localhost:8080/#/"><md-button type="submit" class="log2">Logout</md-button></a>
 </div>
