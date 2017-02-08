@@ -1,0 +1,33 @@
+<!-- <div layout="row" layout-align="end start">
+    <h1>GameSole</h1>
+</div> -->
+
+<!-- logo alignment -->
+<!-- <md-button>
+   <img class="png-icon" src="/Users/jesse/Desktop/GameSole Logo-1 (dragged).tiff" style="width: 24px; height: 24px;">
+</md-button> -->
+
+<!-- navbar -->
+<div ng-controller="SearchCtrl" flex layout="column" role="main" class="md-whiteframe-z2">
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <md-button type="button" ng-click="Showme()">Search</md-button>
+        <span flex></span>
+        <form class="search-box">
+          <input class="search-box-input" type="text" required="required">
+          <button type="reset" class="delete"></button>
+        </form>
+      </div>
+    </md-toolbar>
+
+    <div flex layout="column">
+      <!-- Example of what would be inside a view template -->
+      <div flex layout="column" class="md-padding content">
+        <p>Welcome to the GameSole</p>
+      </div><!-- end view -->
+    </div>
+</div>
+
+<div layout="row" layout-align="end start">
+<a href="http://localhost:8080/#/"><md-button type="submit" class="log2">Logout</md-button></a>
+</div>

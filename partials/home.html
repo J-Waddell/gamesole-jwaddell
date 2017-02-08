@@ -1,29 +1,37 @@
-<!-- <div layout="row" layout-align="end start">
-    <h1>GameSole</h1>
-</div> -->
-
-<!-- logo alignment -->
-<!-- <md-button>
-   <img class="png-icon" src="/Users/jesse/Desktop/GameSole Logo-1 (dragged).tiff" style="width: 24px; height: 24px;">
-</md-button> -->
-
-<!-- navbar -->
-<div flex layout="column" role="main" class="md-whiteframe-z2">
-    <md-toolbar layout="row">
-      <div class="md-toolbar-tools">
-        <md-button type="button" ng-click="Showme()">Search</md-button>
-        <span flex></span>
-        <form class="search-box">
-          <input class="search-box-input" type="text" required="required">
-          <button type="reset" class="delete"></button>
-        </form>
-      </div>
-    </md-toolbar>
-
-    <div flex layout="column">
-      <!-- Example of what would be inside a view template -->
-      <div flex layout="column" class="md-padding content">
-        <p>Welcome to the GameSole</p>
-      </div><!-- end view -->
-    </div>
+<div layout="row" layout-align="space-around start">
+  <!-- <div ng-repeat="(key, item) in fbDataList"> -->
+  <md-card class="md-card">
+    <md-card-header>
+      <md-card-avatar>
+        <img class="md-user-avatar" ng-src="{{item.avatar}}">
+        <!-- https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSk8YWw6cFwFTIwi9VC6PP2kaU5eQXpcgBRJtyko5O8I1ccGN5RIw
+        <!-- https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWvR2-JQYKlBdf1eVOJQPj2-dqNC-tWIrU3o0ToFw68wmQMRCUiQ -->
+      </md-card-avatar>
+      <md-card-header-text>
+        <span class="md-title">{{item.title}}</span>
+        <span class="md-subhead">{{item.subHead}}</span>
+      </md-card-header-text>
+    </md-card-header>
+    <img ng-src="{{item.cardImage}}" class="md-card-image" alt="image caption">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{item.headLine}}</span>
+        <span class="md-description">{{item.description}}</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="start center">
+      
+      <md-button ng-click="downVote(key, item)" class="dvote"><md-icon class="material-icons">thumb_down</md-icon></md-button>
+     <!-- <md-icon class="material-icons">thumb_up</md-icon> -->
+      <md-button ng-click="upVote(key, item)" class="uvote"><md-icon class="material-icons">thumb_up</md-icon></md-button>
+     
+    </md-card-actions>
+    <md-card-content>
+      <md-input-container>
+        <label>Comments</label>
+        <input ng-model="user.input" type="">
+      </md-input-container>
+    </md-card-content>
+  </md-card>
+   <!-- </div> -->
 </div>

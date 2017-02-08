@@ -35,5 +35,9 @@ app.config(($routeProvider, $locationProvider) => {
             controller: 'HomeCtrl',
             templateUrl: 'partials/home.html'
         })
+        .when('/search', {
+            controller: 'SearchCtrl',
+            templateUrl: 'partials/search.html'
+        })
         .otherwise({redirectTo: '/'})
 })

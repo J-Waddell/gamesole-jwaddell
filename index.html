@@ -12,13 +12,11 @@
 <body>
     
         <div ng-app="game-sole">
-            <!-- <md-nav-bar atmd-selected-nav-item="currentNavItem">
+            <md-nav-bar atmd-selected-nav-item="currentNavItem">
             <md-nav-item md-nav-href="/#/" name="page1" class="red">Login</md-nav-item>
-            <md-nav-item md-nav-href="/#/home" name="page2" class="bingoBop">Home</md-nav-item>
+            <md-nav-item md-nav-href="/#/search" name="page2" class="bingoBop">Search</md-nav-item>
+            <md-nav-item md-nav-href="/#/home" name="page3" class="bingoBop">Home</md-nav-item>
         </md-nav-bar>
-            <div layout="row" layout-align="end start">
-                <a href="http://localhost:8080/#/"><md-button type="submit" class="log2">Logout</md-button></a>
-            </div> -->
                 <div ng-view></div>
         </div>
 
@@ -31,6 +29,7 @@
 <script src="/bower_components/angular-route/angular-route.min.js"></script>
 <script src="/app.js"></script>
 <script src="/controllers/home.js"></script>
+<script src="/controllers/search.js"></script>
 <script src="/controllers/login.js"></script>
 </body>
 </html>
