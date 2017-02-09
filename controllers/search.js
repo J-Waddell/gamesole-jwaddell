@@ -5,9 +5,28 @@ app.controller('SearchCtrl', function($scope, $mdSidenav, $http) {
   $http.defaults.headers.common['X-Mashape-Key'] = 'jfS9AMR1wnmshvZpFflvUUg11Tnpp1iysnujsnLAfEXBSJCk9e';
   $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=`)
     .then(function(gameData) {
-      console.log(gameData.data)
-      $scope.gameData = gameData
+      console.log(gameData.data.result)
+      $scope.gameData = gameData.data.result
     })
+
+// search bar connected to results
+// $scope.Showme = function() {
+//   let gameObj = {
+//     result: $scope.gameData
+//   }
+// }
+  $scope.Showme = function() {
+      console.log('showme')
+      let gameObj = {
+        search: $scope.search
+      }
+    $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=${$scope.search}`)
+  .then(function(gameData) {
+      console.log(gameData.data.result)
+      $scope.gameData = gameData.data.result
+  })
+};
+
   var vm = this;
   
   vm.toggleLeft = function() {
@@ -18,14 +37,6 @@ app.controller('SearchCtrl', function($scope, $mdSidenav, $http) {
     $mdSidenav('left-nav').close();
   }
 
-  $scope.Showme = function(results) {
-      console.log(results)
-      let gameObj = {
-        data: $scope.data,
-        result: $scope.result
-      }
-  }
-});
 
 var header = document.querySelector(".header");
 var input = document.querySelector(".search-box-input");
@@ -71,4 +82,4 @@ function showHeaderOnClose() {
 // })
   
 //   app.run(function($http) {
-// });
+});

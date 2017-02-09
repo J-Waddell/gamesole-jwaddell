@@ -11,10 +11,10 @@
 <div ng-controller="SearchCtrl" flex layout="column" role="main" class="md-whiteframe-z2">
     <md-toolbar layout="row">
       <div class="md-toolbar-tools">
-        <md-button type="button" ng-click="Showme()">Search</md-button>
         <span flex></span>
+        <md-button type="button" ng-click="Showme()">Search</md-button>
         <form class="search-box">
-          <input class="search-box-input" type="text" required="required" ng-model="search" ng-model-options="{ debounce: 800 }">
+          <input class="search-box-input" type="text" required="required" ng-model="search" ng-model-options="{ debounce: 500 }">
           <button type="reset" class="delete"></button>
         </form>
       </div>
@@ -44,10 +44,10 @@
   <p>Related Results:</p>
 
   <ul class="rel-results">
-    <li ng-repeat="(key, item) in gameData">
+    <li ng-repeat="item in gameData">
       <a href="/#/home" id="{{ $index + 1 }}" 
-         ng-click="update(game)">{{gameData}}
-      </a>, {{ game.Year }}
+         ng-click="update(game)">{{item}} {{search}}
+      </a>
     </li>
   </ul>
 </div>
