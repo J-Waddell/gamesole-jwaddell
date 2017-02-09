@@ -14,7 +14,7 @@
         <md-button type="button" ng-click="Showme()">Search</md-button>
         <span flex></span>
         <form class="search-box">
-          <input class="search-box-input" type="text" required="required">
+          <input class="search-box-input" type="text" required="required" ng-model="search" ng-model-options="{ debounce: 800 }">
           <button type="reset" class="delete"></button>
         </form>
       </div>
@@ -28,11 +28,29 @@
     </div>
 </div>
 
-<ul ng-repeat="(key, item) in gameData">
-    <li>{{item.gameData}}</li>
-    <li>{{item.data}}</li>
-    <li>{{item.result}}</li>
-</ul>
+<div id="main-info" ng-include="partials/search.html"></div>
+
+<div id="related-results" ng-include="partials/search.html"></div>
+
+<!-- <ul ng-repeat="(key, item) in gameData">
+    <li>{{gameData}}</li>
+     <li>{{item.data}}</li>
+     <li>{{item.result}}</li>
+</ul>  -->
+
+
+
+<div>
+  <p>Related Results:</p>
+
+  <ul class="rel-results">
+    <li ng-repeat="(key, item) in gameData">
+      <a href="/#/home" id="{{ $index + 1 }}" 
+         ng-click="update(game)">{{gameData}}
+      </a>, {{ game.Year }}
+    </li>
+  </ul>
+</div>
 
 <div layout="row" layout-align="end start">
 <a href="http://localhost:8080/#/"><md-button type="submit" class="log2">Logout</md-button></a>

@@ -24,6 +24,31 @@ const app = angular.module('game-sole', ['ngRoute', 'ngMaterial'])
       }
     }
 
+// search controller
+app.controller('GameCtrl', function($scope, $http) {
+  $scope.$watch('search', function() {
+    fetch();
+  })
+  $scope.search = 'The Last Of Us';
+  function fetch(){
+    $http.get("https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=" + $scope.search)
+    .then(function(response) {$scope.details = response.data; });
+
+    $http.get("https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=" + $scope.search)
+    .then(function(response){ $scope.related = response.data; });
+
+    $scope.update = function(game){
+      $scope.search = game.name;
+      };
+
+    $scope.select = function(){
+    this.setSelectionRange(3, this.value.length);
+}
+
+  }
+})
+
+// partials and urls
 app.config(($routeProvider, $locationProvider) => {
     $locationProvider.hashPrefix('')
     $routeProvider

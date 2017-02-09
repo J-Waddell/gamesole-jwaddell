@@ -3,10 +3,10 @@
 
 app.controller('SearchCtrl', function($scope, $mdSidenav, $http) {
   $http.defaults.headers.common['X-Mashape-Key'] = 'jfS9AMR1wnmshvZpFflvUUg11Tnpp1iysnujsnLAfEXBSJCk9e';
-  $http.get('https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=the+last+of+us')
+  $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=`)
     .then(function(gameData) {
-      console.log(gameData.data.result)
-      $scope.gameData = gameData.data.result
+      console.log(gameData.data)
+      $scope.gameData = gameData
     })
   var vm = this;
   
