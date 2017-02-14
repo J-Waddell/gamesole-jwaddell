@@ -24,16 +24,30 @@ const app = angular.module('game-sole', ['ngRoute', 'ngMaterial'])
       }
     }
 
+
+// partials and urls
 app.config(($routeProvider, $locationProvider) => {
     $locationProvider.hashPrefix('')
     $routeProvider
+        .when('/home/', {
+          controller: 'HomeCtrl',
+          templateUrl: 'partials/home.html'
+        })
         .when('/', {
             controller: 'LoginCtrl',
             templateUrl: 'partials/login.html'
         })
-        .when('/home', {
-            contorller: 'HomeCtrl',
+        .when('/home/:result', {
+            controller: 'HomeCtrl',
             templateUrl: 'partials/home.html'
+        })
+        .when('/search', {
+            controller: 'SearchCtrl',
+            templateUrl: 'partials/search.html'
+        })
+        .when('/prog', {
+          controller: 'progCtrl',
+          templateUrl: 'partials/progBar.html'
         })
         .otherwise({redirectTo: '/'})
 })

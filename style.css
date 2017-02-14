@@ -1,6 +1,18 @@
 body {
-    background-color: #9E9E9E;
+    background: #9E9E9E !important;
     color: #424242;
+}
+
+.cardBG {
+  background-color: darkgrey;
+}
+
+.backGroundPlz {
+  background-color: #9E9E9E !important;
+}
+
+.backGroundAgain {
+  background-color: #B0BEC5 !important;
 }
 
 #logo {
@@ -12,8 +24,8 @@ body {
 }
 
 .log2 {
-    background-color: ;
-    color: white;
+    background-color: #9E9E9E;
+    color: red;
 }
 
 .md-accent{

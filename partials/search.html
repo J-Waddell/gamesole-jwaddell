@@ -2,9 +2,46 @@
     <h1>GameSole</h1>
 </div>
 
-<div layout="row" layout-align="space-around start">
+<!-- logo alignment -->
+<!-- <md-button>
+   <img class="png-icon" src="/Users/jesse/Desktop/GameSole Logo-1 (dragged).tiff" style="width: 24px; height: 24px;">
+</md-button> -->
+
+<!-- navbar -->
+<div role="main" class="md-whiteframe-z2">
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <span flex></span>
+        <md-button type="button" ng-click="Showme()" >Search</md-button>
+        <form class="search-box">
+          <input class="search-box-input" type="text" required="required" ng-model="search" ng-model-options="{ debounce: 500 }">
+          <button type="reset" class="delete"></button>
+        </form>
+      </div>
+    </md-toolbar>
+</div>
+      <!-- Example of what would be inside a view template -->
+        <!-- <p>Welcome to the GameSole</p> -->
+  <p>Common Results:</p>
+
+  <ul class="backGroundPlz">
+    <li ng-repeat="item in gameData">
+      <a ng-href="{{item}}" id="{{ $index + 1 }}" 
+         ng-click="update(game)">{{item}} 
+      </a>
+    </li>
+  <p>Search Results:</p>
+    <!-- <li ng-repeat="item in searchGameData">
+      <a ng-href="http://localhost:8080/#/home:result" id="{{ $index + 1 }}" ng-click="update(game)">
+      {{item}}  
+      </a>
+    </li>
+  </ul> -->
+
+
+<div layout="row" layout-align="space-around start" class="cardBG">
   <form>
-  <ul ng-repeat="item in gameData">
+  <ul ng-repeat="item in searchGameData">
   <!-- <li> -->
   <!-- <div ng-repeat="(key, item) in fbDataList"> -->
   <md-card class="md-card">
@@ -22,7 +59,7 @@
     <img ng-src="{{item.img}}" class="md-card-image" alt="image caption">
     <md-card-title>
       <md-card-title-text>
-        <span class="md-result">{{item.result}}</span>
+        <span class="md-result">{{item}}</span>
         <!-- <span class="md-description">{{item.description}}</span> -->
       </md-card-title-text>
     </md-card-title>
@@ -46,3 +83,16 @@
    </ul>
   </form> 
 </div>
+<!-- </div> -->
+<div layout="row" layout-align="end start" class="backGroundAgain">
+<a href="http://localhost:8080/#/"><md-button type="submit" class="log2">Logout</md-button></a>
+</div>
+<!-- <div> -->
+  <!-- <ul>
+  </ul> -->
+<!-- </div>
+ -->
+
+<!-- <div id="main-info" ng-include="partials/search.html"></div>
+
+<div id="related-results" ng-include="partials/search.html"></div>

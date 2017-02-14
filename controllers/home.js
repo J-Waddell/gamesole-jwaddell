@@ -1,39 +1,16 @@
-// homepage navbar js
-var Nav = angular.module('myApp', ['ngMaterial', 'ngMdIcons']);
+app.controller('HomeCtrl', function($scope, authFactory) {
+    console.log('HomeCtrl')
+    $scope.addGame = () => {
+        console.log('added?')
+    }
 
-Nav.controller('mainController', ['$mdSidenav', function($mdSidenav) {
-  var vm = this;
-  
-  vm.toggleLeft = function() {
-    $mdSidenav('left-nav').toggle();
-  };
-  
-  vm.close = function() {
-    $mdSidenav('left-nav').close();
-  }
-}]);
+})
 
-var header = document.querySelector(".header");
-var input = document.querySelector(".search-box-input");
-var close = document.querySelector(".delete");
 
-function hideHeader() {
-  header.classList.remove('show');
-  header.classList.add('hide');
-};
+// Giant Bomb Api key:
+// http://www.giantbomb.com/api/activate
+// dc75e54a7566ebbd6a99e4edacb2840ae2f6a514
 
-function showHeader() {
-  if (input.value === '') {
-    header.classList.remove('hide');
-    header.classList.add('show');
-  }
-};
-
-function showHeaderOnClose() {
-  header.classList.remove('hide');
-  header.classList.add('show');
-};
-
-// input.addEventListener("focus", hideHeader);
-// input.addEventListener("blur", showHeader);
-// close.addEventListener("click", showHeaderOnClose);
+// bing api keys:
+// 1. 692e7112434a478d93043f8774f2967b
+// 2. 4a563a6d1c404a23aeee158777d3c485 
