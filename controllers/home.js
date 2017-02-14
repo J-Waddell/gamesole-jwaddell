@@ -1,9 +1,11 @@
-app.controller('HomeCtrl', function($scope) {
+app.controller('HomeCtrl', function($scope, authFactory) {
     console.log('HomeCtrl')
     $scope.addGame = () => {
         console.log('added?')
     }
+
 })
+
 
 // Giant Bomb Api key:
 // http://www.giantbomb.com/api/activate

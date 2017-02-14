@@ -29,11 +29,15 @@ const app = angular.module('game-sole', ['ngRoute', 'ngMaterial'])
 app.config(($routeProvider, $locationProvider) => {
     $locationProvider.hashPrefix('')
     $routeProvider
+        .when('/home/', {
+          controller: 'HomeCtrl',
+          templateUrl: 'partials/home.html'
+        })
         .when('/', {
             controller: 'LoginCtrl',
             templateUrl: 'partials/login.html'
         })
-        .when('/home', {
+        .when('/home/:result', {
             controller: 'HomeCtrl',
             templateUrl: 'partials/home.html'
         })

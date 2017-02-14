@@ -14,6 +14,17 @@ app.controller('SearchCtrl', function($scope, $mdSidenav, $http) {
     //   console.log(gameInfo)
     // })
 
+    $scope.routeGame = function() {
+        let gameRoute = {
+            result: $scope.result,
+            Image: $scope.img,
+            comment: $scope.comment,
+            uid: authFactory.getUserId()
+        }
+    console.log(gameRoute)
+    $http.post('https://gamesole-d397d.firebaseio.com/pin/.json', JSON.stringify(gameRoute))
+    }
+
 // search bar connected to results
 // $scope.Showme = function() {
 //   let gameObj = {
