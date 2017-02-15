@@ -8,11 +8,11 @@
             <md-nav-item md-nav-href="/#/home" name="page3" class="bingoBop">Home</md-nav-item>
         </md-nav-bar>
 
-<div layout="row" layout-align="space-around start">
+<div layout="row" layout-align="space-around start" >
   <form>
-  <!-- <ul ng-repeat="item in gameData"> -->
+  <ul ng-repeat="item in res">
   <!-- <li> -->
-  <!-- <div ng-repeat="(key, item) in fbDataList"> -->
+  <!-- <div ng-repeat="(key, item) in httpResObj"> -->
   <md-card class="md-card">
     <!-- <md-card-header> -->
       <!-- <md-card-avatar>
@@ -40,15 +40,17 @@
       <md-input-container>
         <label>Comments</label>
         <input ng-model="user.input" type="">
-        <md-button ng-click="routeGame()">send</md-button>
-      <md-button ng-click="downVote(key, item)" class="dvote"><md-icon class="material-icons">thumb_down</md-icon></md-button>
-     <!-- <md-icon class="material-icons">thumb_up</md-icon> -->
-      <md-button ng-click="upVote(key, item)" class="uvote" ng-href="https://gamesole-d397d.firebaseio.com/pin/.json"><md-icon class="material-icons">thumb_up</md-icon></md-button>
+        <md-button ng-click="sendCard()">send</md-button>
+      <!-- <md-button ng-click="downVote(key, item)" class="dvote"><md-icon class="material-icons">thumb_down</md-icon></md-button> -->
+      <md-button ng-click="upVote(key, item)" class="uvote"><md-icon class="material-icons">thumb_up</md-icon></md-button>
+      <div layout="column" layout-align="end end">
+      Likes{{item.likes}}
+      </div>
       </md-input-container>
     </md-card-content>
   </md-card>
    <!-- </div> -->
    <!-- </li> -->
-   <!-- </ul> -->
+   </ul>
   </form> 
 </div>

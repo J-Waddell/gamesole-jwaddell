@@ -3,6 +3,11 @@ body {
     color: #424242;
 }
 
+.save {
+  width: 4em;
+  height: 3em;
+}
+
 .cardBG {
   background-color: darkgrey;
   border-radius: 2em;
@@ -19,7 +24,9 @@ body {
 }
 
 #logo {
-    border-radius: .5em;
+    border-radius: 2em;
+    width: 15em;
+    height: 13em;
 }
 
 .log1 {
