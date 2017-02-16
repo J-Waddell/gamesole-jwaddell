@@ -1,29 +1,42 @@
 // homepage navbar js
 // var Nav = angular.module('myApp', ['ngMaterial', 'ngMdIcons']);
 
-app.controller('SearchCtrl', function($scope, $mdSidenav, $http) {
+app.controller('SearchCtrl', function($scope, $mdSidenav, $http, $mdToast, searchFactory, authFactory) {
   $http.defaults.headers.common['X-Mashape-Key'] = 'jfS9AMR1wnmshvZpFflvUUg11Tnpp1iysnujsnLAfEXBSJCk9e';
   $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=`)
     .then(function(gameData) {
       console.log(gameData.data.result)
       $scope.gameData = gameData.data.result
     })
+
+
+
+// mashape new key: 
+
   // $http.defaults.headers.common['X-Mashape-Key'] = 'jfS9AMR1wnmshvZpFflvUUg11Tnpp1iysnujsnLAfEXBSJCk9e';
   // $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/information?console=${$scope.search}`)
   //   // .then(function(gameInfo) {
     //   console.log(gameInfo)
     // })
 
-    $scope.routeGame = function() {
-        let gameRoute = {
-            result: $scope.result,
-            Image: $scope.img,
-            comment: $scope.comment,
-            uid: authFactory.getUserId()
-        }
-    console.log(gameRoute)
-    $http.post('https://gamesole-d397d.firebaseio.com/pin/.json', JSON.stringify(gameRoute))
-    }
+  //   $scope.downVote = function(key, gameRoute) {
+  //   gameRoute.likes = gameRoute.likes - 1
+  // }
+  //   $scope.upVote = function(key, gameRoute) {
+  //   gameRoute.likes = gameRoute.likes + 1
+  // }
+
+    // $scope.routeGame = function() {
+    //     let gameRoute = {
+    //         result: $scope.searchGameData,            
+    //         Image: $scope.img,
+    //         comment: $scope.comment,
+    //         uid: authFactory.getUserId(),
+    //         // likes: 0
+    //     }
+    // console.log(gameRoute)
+    // $http.post('https://gamesole-d397d.firebaseio.com/pin/.json', JSON.stringify(gameRoute))
+    // }
 
 // search bar connected to results
 // $scope.Showme = function() {
@@ -32,18 +45,31 @@ app.controller('SearchCtrl', function($scope, $mdSidenav, $http) {
 //   }
 // }
 
-  $scope.Showme = function() {
-      // console.log('showme')
-      // let gameObj = {
-      //   search: $scope.search
-      // }
-    $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=${$scope.search}`)
+$scope.sendCard = function(item) {
+  let sendRes = {
+    result: item,
+  }
+  $mdToast.show(
+    $mdToast.simple()
+    .textContent('Saved!')
+    .position('bottom right')
+    .hideDelay(800)
+    );
+  $http.post('https://gamesole-d397d.firebaseio.com/pin/.json', JSON.stringify(sendRes))
+};
+
+  $scope.Showme = function(item) {
+      console.log(item)  
+    $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=${item}`)
     .then(function(search) {
-      // console.log(search.data.result)
+    // searchFactory.getList()
+      console.log(search)
       $scope.searchGameData = search.data.result
-      console.log(typeof $scope.searchGameData)
-     
   })
+    // .then(function(gameData) {
+    //   console.log(gameData)
+    //   $scope.gameData = gameData
+    // })
 };
 
   var vm = this;
@@ -57,48 +83,36 @@ app.controller('SearchCtrl', function($scope, $mdSidenav, $http) {
   }
 
 
-var header = document.querySelector(".header");
-var input = document.querySelector(".search-box-input");
-var close = document.querySelector(".delete");
+  var header = document.querySelector(".header");
+  var input = document.querySelector(".search-box-input");
+  var close = document.querySelector(".delete");
 
-function hideHeader() {
-  header.classList.remove('show');
-  header.classList.add('hide');
-};
+  function hideHeader() {
+    header.classList.remove('show');
+    header.classList.add('hide');
+  };
 
-function showHeader() {
-  if (input.value === '') {
+  function showHeader() {
+    if (input.value === '') {
+      header.classList.remove('hide');
+      header.classList.add('show');
+    }
+  };
+
+  function showHeaderOnClose() {
     header.classList.remove('hide');
     header.classList.add('show');
-  }
-};
-
-function showHeaderOnClose() {
-  header.classList.remove('hide');
-  header.classList.add('show');
-};
-
-// input.addEventListener("focus", hideHeader);
-// input.addEventListener("blur", showHeader);
-// close.addEventListener("click", showHeaderOnClose);
-
-// go to searched thing
-// controller('SearchCtrl', function() {
-//   console.log('I am SearchCtrl')
-// })
-
-
-// search factory
-// app.factory('searchFactory', function($http) {
-//   return {
-//     getList : () => {
-//       return $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search/${$scope.results}.json`)
-//     }
-//   }
-// })
-
-// app.run(function($http) {
-// })
-  
-//   app.run(function($http) {
+  };
 });
+
+// app factory
+app.factory('searchFactory', function($http) {
+    return {
+        getList : () => {
+            return $http.get('https://gamesole-d397d.firebaseio.com/pin.json')
+            .then(function(httpResObj) {
+                return httpResObj.data
+            })
+        }
+    }
+})

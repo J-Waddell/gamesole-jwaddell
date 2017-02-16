@@ -1,18 +1,9 @@
-<div layout="row" layout-align="end start">
-    <h1>GameSole</h1>
-</div>
-
-<!-- logo alignment -->
-<!-- <md-button>
-   <img class="png-icon" src="/Users/jesse/Desktop/GameSole Logo-1 (dragged).tiff" style="width: 24px; height: 24px;">
-</md-button> -->
-
 <!-- navbar -->
 <div role="main" class="md-whiteframe-z2">
     <md-toolbar layout="row">
       <div class="md-toolbar-tools">
         <span flex></span>
-        <md-button type="button" ng-click="Showme()" >Search</md-button>
+        <md-button type="button" ng-click="Showme(search)" class="sendBtn">Search</md-button>
         <form class="search-box">
           <input class="search-box-input" type="text" required="required" ng-model="search" ng-model-options="{ debounce: 500 }">
           <button type="reset" class="delete"></button>
@@ -20,47 +11,41 @@
       </div>
     </md-toolbar>
 </div>
-      <!-- Example of what would be inside a view template -->
-        <!-- <p>Welcome to the GameSole</p> -->
+
+<div layout="row" layout-align="end start" class="backGroundAgain">
+<a href="http://localhost:8080/#/"><md-button type="submit" class="log2">Logout</md-button></a>
+</div>
+
+<div layout="row" layout-align="end start" class="homeTitle">
+    <h1>GameSole</h1>
+</div>
+
+<md-nav-bar atmd-selected-nav-item="currentNavItem">
+  <md-nav-item md-nav-href="/#/" name="page1" class="red">Login</md-nav-item>
+  <md-nav-item md-nav-href="/#/search" name="page2" class="bingoBop">Search</md-nav-item>
+  <md-nav-item md-nav-href="/#/home" name="page3" class="bingoBop">Home</md-nav-item>
+</md-nav-bar>
+
   <p>Common Results:</p>
 
   <ul class="backGroundPlz">
-    <li ng-repeat="item in gameData">
-      <a ng-href="{{item}}" id="{{ $index + 1 }}" 
-         ng-click="update(game)">{{item}} 
-      </a>
-    </li>
+    <div ng-repeat="item in gameData">
+    <md-button class="sendBtn" ng-click="Showme(item)">{{item}}</md-button>
+    </div>
+    <!-- <li ng-repeat="item in gameData"> -->
+      <!-- <a ng-href="https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=" id="{{ $index + 1 }}" 
+         ng-click="update(game)" class="sendBtn"> -->
+      <!-- </a> -->
+    <!-- </li> -->
   <p>Search Results:</p>
-    <!-- <li ng-repeat="item in searchGameData">
-      <a ng-href="http://localhost:8080/#/home:result" id="{{ $index + 1 }}" ng-click="update(game)">
-      {{item}}  
-      </a>
-    </li>
-  </ul> -->
-
-
 <div layout="row" layout-align="space-around start" class="cardBG">
   <form>
-  <ul ng-repeat="item in searchGameData">
-  <!-- <li> -->
-  <!-- <div ng-repeat="(key, item) in fbDataList"> -->
+  <ul ng-repeat="item in searchGameData" id="{{ $index + 1 }}">
   <md-card class="md-card">
-    <!-- <md-card-header> -->
-      <!-- <md-card-avatar>
-        <img class="md-user-avatar" ng-src="{{item.avatar}}">
-        https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSk8YWw6cFwFTIwi9VC6PP2kaU5eQXpcgBRJtyko5O8I1ccGN5RIw
-        <!-- https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWvR2-JQYKlBdf1eVOJQPj2-dqNC-tWIrU3o0ToFw68wmQMRCUiQ
-      </md-card-avatar> -->
-      <!-- <md-card-header-text>
-        <span class="md-result">{{item.result}}</span> -->
-        <!-- <span class="md-subhead">{{item.subHead}}</span> -->
-      <!-- </md-card-header-text>
-    </md-card-header> -->
     <img ng-src="{{item.img}}" class="md-card-image" alt="image caption">
     <md-card-title>
       <md-card-title-text>
         <span class="md-result">{{item}}</span>
-        <!-- <span class="md-description">{{item.description}}</span> -->
       </md-card-title-text>
     </md-card-title>
     <md-card-actions layout="row" layout-align="start center">
@@ -69,30 +54,16 @@
     </md-card-actions>
     <md-card-content>
       <md-input-container>
+
         <label>Comments</label>
-        <input ng-model="user.input" type="">
-        <md-button ng-click="routeGame()">send</md-button>
-      <md-button ng-click="downVote(key, item)" class="dvote"><md-icon class="material-icons">thumb_down</md-icon></md-button>
-     <!-- <md-icon class="material-icons">thumb_up</md-icon> -->
-      <md-button ng-click="upVote(key, item)" class="uvote" ng-href="https://gamesole-d397d.firebaseio.com/pin/.json"><md-icon class="material-icons">thumb_up</md-icon></md-button>
+        <input ng-model="message" name="comment" disabled="">
+      <div ng-messages="message.comment.$error">
+    </div>
+        <md-button ng-click="" ng-message="required">Add to Home Before Commenting!</md-button>
+      <md-button ng-click="sendCard(item)" ng-href="/#/home"  class="save"><md-icon class="material-icons">add_circle_outline</md-icon></md-button>
       </md-input-container>
     </md-card-content>
   </md-card>
-   <!-- </div> -->
-   <!-- </li> -->
    </ul>
   </form> 
 </div>
-<!-- </div> -->
-<div layout="row" layout-align="end start" class="backGroundAgain">
-<a href="http://localhost:8080/#/"><md-button type="submit" class="log2">Logout</md-button></a>
-</div>
-<!-- <div> -->
-  <!-- <ul>
-  </ul> -->
-<!-- </div>
- -->
-
-<!-- <div id="main-info" ng-include="partials/search.html"></div>
-
-<div id="related-results" ng-include="partials/search.html"></div>

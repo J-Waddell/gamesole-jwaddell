@@ -1,29 +1,49 @@
-<div layout="row" layout-align="end start">
+    <!-- <div layout="row" layout-align="center">
+    <md-card>
+      <md-card-content>
+      <img class="avatar" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT5zxOGzwSE643WR2-13xBm7iNuDJ17R5eOEZSdLwza9c1ifcnA">
+      <br>
+      <label>Bio</label>
+      <br>
+      {{item.}}
+      <md-input-container>
+      <label>Name</label>
+      <input type="" ng-model="input.name">
+      </md-input-container>
+      <md-input-container>
+      <label>Age</label>
+      <input type="" ng-model="input.age">
+      </md-input-container>
+      <md-input-container>
+      <label>Description</label>
+      <input type="" ng-model="input.description">
+      </md-input-container>
+      </md-card-content>
+      <md-button ng-click="addComment(input.name, input.age, input.description, key)">Save</md-button>
+      </md-card>
+    </div> -->
+<div layout="row" layout-align="end start" class="homeTitle">
     <h1>GameSole</h1>
 </div>
 
-<div layout="row" layout-align="space-around start">
+<md-nav-bar atmd-selected-nav-item="currentNavItem">
+            <md-nav-item md-nav-href="/#/" name="page1" class="red">Login</md-nav-item>
+            <md-nav-item md-nav-href="/#/search" name="page2" class="bingoBop">Search</md-nav-item>
+            <md-nav-item md-nav-href="/#/home" name="page3" class="bingoBop">Home</md-nav-item>
+        </md-nav-bar>
+
+<div style="width: 80em; height:22.5em; border:1px solid grey; overflow-x:scroll">
+<div layout="row" layout-align="start start">
+  <a ng-repeat="(key, item) in res">
   <form>
-  <ul ng-repeat="item in gameData">
-  <!-- <li> -->
-  <!-- <div ng-repeat="(key, item) in fbDataList"> -->
   <md-card class="md-card">
-    <!-- <md-card-header> -->
-      <!-- <md-card-avatar>
-        <img class="md-user-avatar" ng-src="{{item.avatar}}">
-        https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSk8YWw6cFwFTIwi9VC6PP2kaU5eQXpcgBRJtyko5O8I1ccGN5RIw
-        <!-- https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWvR2-JQYKlBdf1eVOJQPj2-dqNC-tWIrU3o0ToFw68wmQMRCUiQ
-      </md-card-avatar> -->
-      <!-- <md-card-header-text>
-        <span class="md-result">{{item.result}}</span> -->
-        <!-- <span class="md-subhead">{{item.subHead}}</span> -->
-      <!-- </md-card-header-text>
-    </md-card-header> -->
+  <div layout="row" layout-align="end start">
+    <md-button ng-click="deletePost(post, key)"><md-icon class="material-icons-x">delete_forever</md-icon></md-button>
+  </div>
     <img ng-src="{{item.img}}" class="md-card-image" alt="image caption">
     <md-card-title>
       <md-card-title-text>
-        <span class="md-result">{{item.result}}</span>
-        <!-- <span class="md-description">{{item.description}}</span> -->
+        <span class="md-result" >{{item.result}}:</span>
       </md-card-title-text>
     </md-card-title>
     <md-card-actions layout="row" layout-align="start center">
@@ -31,18 +51,37 @@
      
     </md-card-actions>
     <md-card-content>
+        <p>{{item.comment}}</p>
       <md-input-container>
         <label>Comments</label>
         <input ng-model="user.input" type="">
-        <md-button ng-click="routeGame()">send</md-button>
-      <md-button ng-click="downVote(key, item)" class="dvote"><md-icon class="material-icons">thumb_down</md-icon></md-button>
-     <!-- <md-icon class="material-icons">thumb_up</md-icon> -->
-      <md-button ng-click="upVote(key, item)" class="uvote" ng-href="https://gamesole-d397d.firebaseio.com/pin/.json"><md-icon class="material-icons">thumb_up</md-icon></md-button>
+        <md-button ng-click="addComment(user.input, key)" class="sendBtn">send</md-button>
+      <md-button ng-click="upVote(key, item)" class="uvote"><md-icon class="material-icons-y">thumb_up</md-icon></md-button>
+      <div layout="column" layout-align="end end">
+      Likes{{item.likes}}
+      </div>
       </md-input-container>
     </md-card-content>
   </md-card>
-   <!-- </div> -->
-   <!-- </li> -->
-   </ul>
   </form> 
+   </a>
+   </div>
 </div>
+
+<div layout="row" layout-align="end start" >
+<a href="http://localhost:8080/#/"><md-button type="submit" class="log2">Logout</md-button></a>
+</div>
+  <!-- <md-virtual-repeat-container>
+  <div md-virtual-repeat="item.result in items" md-item-size="10">{{item.result}}</div>
+   </md-virtual-repeat-container> -->
+
+<!-- <div ng-controller="HomeCtrl as ctrl" ng-cloak>
+  <md-content layout="column">
+    <md-virtual-repeat-container id="horizontal-container" md-orient-horizontal>
+      <div md-virtual-repeat="item in ctrl.items" ng-repeat="item in res"
+          class="repeated-item" flex>
+        {{item.result}}
+      </div>
+    </md-virtual-repeat-container>
+  </md-content>
+</div> -->
