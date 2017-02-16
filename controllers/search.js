@@ -51,22 +51,25 @@ $scope.sendCard = function(item) {
   }
   $mdToast.show(
     $mdToast.simple()
-    .textContent('Sent!')
-    .position('bottom left')
-    .hideDelay(3000)
+    .textContent('Saved!')
+    .position('bottom right')
+    .hideDelay(800)
     );
   $http.post('https://gamesole-d397d.firebaseio.com/pin/.json', JSON.stringify(sendRes))
 };
 
-  $scope.Showme = function() {
-    $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=${$scope.search}`)
+  $scope.Showme = function(item) {
+      console.log(item)  
+    $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=${item}`)
     .then(function(search) {
     // searchFactory.getList()
-      // console.log(search.data.result)
+      console.log(search)
       $scope.searchGameData = search.data.result
-      console.log(typeof $scope.searchGameData)
-     
   })
+    // .then(function(gameData) {
+    //   console.log(gameData)
+    //   $scope.gameData = gameData
+    // })
 };
 
   var vm = this;

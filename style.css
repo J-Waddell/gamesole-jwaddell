@@ -1,11 +1,51 @@
 body {
-    background: #9E9E9E !important;
-    color: #424242;
+    background: #BDBDBD !important;
 }
 
-.save {
-  width: 4em;
-  height: 3em;
+
+.avatar {
+  border-radius: 3.5em;
+  width: 10em;
+  height: 10em;
+}
+
+.sendBtn {
+  color: #69F0AE;
+}
+
+.homeTitle {
+  color: #69F0AE;
+}
+
+.md-display-3 {
+  color: #69F0AE;
+}
+
+.md-result {
+  color: #212121;
+}
+
+.md-card {
+  background-color: #9E9E9E;
+  /*border: 1px black solid;*/
+  box-shadow: 5px 5px 5px 5px #424242;
+  border-radius: .3em;
+  color: white;
+}
+
+.material-icons-x {
+  color: #FF8F00 !important;
+}
+
+.material-icons-y {
+  color: #EEEEEE !important;
+}
+
+.material-icons.ng-scope {
+  /*width: 4em;*/
+  /*height: 3em;*/
+  color: #69F0AE;
+  /*background-color: #BDBDBD !important;*/
 }
 
 .cardBG {
@@ -19,12 +59,12 @@ body {
 }
 
 .backGroundAgain {
-  background-color: #B0BEC5 !important;
+  /*background-color: #37474F !important;*/
   border-radius: .3em;
 }
 
 #logo {
-    border-radius: 2em;
+    border-radius: 5em;
     width: 15em;
     height: 13em;
 }
@@ -34,22 +74,23 @@ body {
 }
 
 .log2 {
-    background-color: #9E9E9E;
-    color: red;
+    /*background-color: #9E9E9E;*/
+    color: #424242;
     border-radius: .5em;
+    /*box-shadow: 1px 1px 1px 2px #69F0AE;*/
 }
 
 .md-accent{
-  color: #69F0AE !important;
+  color: #455A64 !important;
 }
 
 md-nav-bar md-nav-ink-bar{
-  color: #69F0AE;
-  background-color: #69F0AE;
+  color: #455A64 !important;
+  background-color: #455A64 !important;
 }
 
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
-    border-color: #69F0AE;
+    border-color: #69F0AE !important;
 }
 
 /*homepage styling*/
@@ -218,3 +259,4 @@ md-toolbar:not(.md-menu-toolbar) {
              scale(1);
   transition-delay: 0.5s;
 }
+
