@@ -55,12 +55,15 @@ $scope.sendCard = function(item) {
       image: item.image.small_url,
       name: item.name,
       platform: item.platforms[0].name,
+      information: item.deck,
+      releaseDate: item.original_release_date,
+      siteDetail: item.site_detail_url,
       likes: 0
   }
   $mdToast.show(
     $mdToast.simple()
     .textContent('Saved!')
-    .position('bottom right')
+    .position('top right')
     .hideDelay(800)
     );
   $http.post('https://gamesole-d397d.firebaseio.com/pin/.json', JSON.stringify(gameObj))

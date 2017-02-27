@@ -38,14 +38,19 @@
       <!-- </a> -->
     <!-- </li> -->
   <p>Searched Results:</p>
-  <div style="width: 80em; height:40em; border:1px solid grey; overflow-x:scroll">
-<div layout="row" layout-align="space-around start" class="cardBG">
+  <div style="width: 80em; height:40em; border:1px solid grey; overflow-x:scroll; background-color: #9E9E9E;">
+<div layout="row" layout-align="space-around end">
+<img class="pacman" src="https://media0.giphy.com/media/L8HOyd1rEXk6Q/100.gif">
   <ul ng-repeat="item in searchGameData" id="{{ $index + 1 }}">
   <md-card class="md-card">
     <img ng-src="{{item.image.small_url}}" class="md-card-image" alt="image caption">
     <md-card-title>
       <md-card-title-text>
         <span class="md-result">{{item.name}}</span>
+        <p>Game Information:</p>
+        <span>{{item.deck}}</span>
+
+        <p class="md-result2">Platform:</p>
         <span class="md-result2">{{item.platforms[0].name}}</span>
       </md-card-title-text>
     </md-card-title>
@@ -65,13 +70,13 @@
       <md-tooltip md-direction="right">Add to Home</md-tooltip>
       <md-icon class="material-icons">add_circle_outline</md-icon>
       </md-button>
-      <md-button ng-click="" ng-href="">
-      <md-tooltip md-direction="right">Link</md-tooltip>
+      <md-button ng-click="" ng-href="{{item.site_detail_url}}">
+      <md-tooltip md-direction="right">Get More Info!</md-tooltip>
       <md-icon class="addLink">link</md-icon>
       </md-button>
       </md-input-container>
     </md-card-content>
   </md-card>
-   </ul> 
 </div>
+   </ul> 
 </div>
