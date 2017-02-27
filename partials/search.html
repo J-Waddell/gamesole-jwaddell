@@ -26,26 +26,27 @@
   <md-nav-item md-nav-href="/#/home" name="page3" class="bingoBop">Home</md-nav-item>
 </md-nav-bar>
 
-  <p>Common Results:</p>
+  <!-- <p>New Releases:</p>
 
   <ul class="backGroundPlz">
     <div ng-repeat="item in gameData">
     <md-button class="sendBtn" ng-click="Showme(item)">{{item}}</md-button>
-    </div>
+    </div> -->
     <!-- <li ng-repeat="item in gameData"> -->
       <!-- <a ng-href="https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=" id="{{ $index + 1 }}" 
          ng-click="update(game)" class="sendBtn"> -->
       <!-- </a> -->
     <!-- </li> -->
-  <p>Search Results:</p>
+  <p>Searched Results:</p>
+  <div style="width: 80em; height:40em; border:1px solid grey; overflow-x:scroll">
 <div layout="row" layout-align="space-around start" class="cardBG">
-  <form>
   <ul ng-repeat="item in searchGameData" id="{{ $index + 1 }}">
   <md-card class="md-card">
-    <img ng-src="{{item.img}}" class="md-card-image" alt="image caption">
+    <img ng-src="{{item.image.small_url}}" class="md-card-image" alt="image caption">
     <md-card-title>
       <md-card-title-text>
-        <span class="md-result">{{item}}</span>
+        <span class="md-result">{{item.name}}</span>
+        <span class="md-result2">{{item.platforms[0].name}}</span>
       </md-card-title-text>
     </md-card-title>
     <md-card-actions layout="row" layout-align="start center">
@@ -60,10 +61,17 @@
       <div ng-messages="message.comment.$error">
     </div>
         <md-button ng-click="" ng-message="required">Add to Home Before Commenting!</md-button>
-      <md-button ng-click="sendCard(item)" ng-href="/#/home"  class="save"><md-icon class="material-icons">add_circle_outline</md-icon></md-button>
+      <md-button ng-click="sendCard(item)" ng-href="/#/home"  class="save">
+      <md-tooltip md-direction="right">Add to Home</md-tooltip>
+      <md-icon class="material-icons">add_circle_outline</md-icon>
+      </md-button>
+      <md-button ng-click="" ng-href="">
+      <md-tooltip md-direction="right">Link</md-tooltip>
+      <md-icon class="addLink">link</md-icon>
+      </md-button>
       </md-input-container>
     </md-card-content>
   </md-card>
-   </ul>
-  </form> 
+   </ul> 
+</div>
 </div>

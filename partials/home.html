@@ -32,18 +32,19 @@
             <md-nav-item md-nav-href="/#/home" name="page3" class="bingoBop">Home</md-nav-item>
         </md-nav-bar>
 
-<div style="width: 80em; height:22.5em; border:1px solid grey; overflow-x:scroll">
-<div layout="row" layout-align="start start">
+<div layout="row" layout-align="center" style="width: 80em; height:30em; border:1px solid grey; overflow-x:scroll">
+<div layout="column" layout-align="start start">
   <a ng-repeat="(key, item) in res">
   <form>
-  <md-card class="md-card">
+  <md-card class="md-card-home">
   <div layout="row" layout-align="end start">
     <md-button ng-click="deletePost(post, key)"><md-icon class="material-icons-x">delete_forever</md-icon></md-button>
   </div>
-    <img ng-src="{{item.img}}" class="md-card-image" alt="image caption">
+    <img ng-src="{{item.image}}" class="md-card-image2" alt="image caption">
     <md-card-title>
       <md-card-title-text>
-        <span class="md-result" >{{item.result}}:</span>
+        <span class="md-result" >{{item.name}}</span>
+        <span class="md-result2">{{item.platform}}</span>
       </md-card-title-text>
     </md-card-title>
     <md-card-actions layout="row" layout-align="start center">
@@ -51,10 +52,10 @@
      
     </md-card-actions>
     <md-card-content>
+        <label>Comments:</label>
         <p>{{item.comment}}</p>
       <md-input-container>
-        <label>Comments</label>
-        <input ng-model="user.input" type="">
+        <input ng-model="user.input" type="" class="input-field">
         <md-button ng-click="addComment(user.input, key)" class="sendBtn">send</md-button>
       <md-button ng-click="upVote(key, item)" class="uvote"><md-icon class="material-icons-y">thumb_up</md-icon></md-button>
       <div layout="column" layout-align="end end">

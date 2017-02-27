@@ -33,6 +33,27 @@ body {
   color: white;
 }
 
+.md-card-image {
+  width: 15em;
+  height: 15em;
+  border-radius: .3em;
+}
+
+.md-card-image2 {
+  width: 30em;
+  height: 15em;
+  border-radius: .3em;
+  align-self: center;
+}
+
+.md-card-home {
+  background-color: #9E9E9E;
+  width: 50em;
+  box-shadow: 5px 5px 5px 5px #424242;
+  border-radius: .3em;
+  color: white;
+}
+
 .material-icons-x {
   color: #FF8F00 !important;
 }
