@@ -1,4 +1,4 @@
-app.controller('HomeCtrl', function($scope, $http, $mdToast, authFactory, searchFactory) {
+app.controller('HomeCtrl', function($scope, $http, $mdToast, $route, authFactory, searchFactory) {
     console.log('HomeCtrl')
     searchFactory.getList()
     .then(function(res) {
@@ -60,6 +60,7 @@ app.controller('HomeCtrl', function($scope, $http, $mdToast, authFactory, search
 // Giant Bomb Api key:
 // http://www.giantbomb.com/api/activate
 // dc75e54a7566ebbd6a99e4edacb2840ae2f6a514
+
 
 // bing api keys:
 // 1. 692e7112434a478d93043f8774f2967b

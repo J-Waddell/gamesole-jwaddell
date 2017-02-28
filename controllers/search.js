@@ -1,13 +1,17 @@
 // homepage navbar js
 // var Nav = angular.module('myApp', ['ngMaterial', 'ngMdIcons']);
 
-app.controller('SearchCtrl', function($scope, $mdSidenav, $http, $mdToast, searchFactory, authFactory) {
-  $http.defaults.headers.common['X-Mashape-Key'] = 'jfS9AMR1wnmshvZpFflvUUg11Tnpp1iysnujsnLAfEXBSJCk9e';
-  $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=`)
-    .then(function(gameData) {
-      console.log(gameData.data.result)
-      $scope.gameData = gameData.data.result
-    })
+app.controller('SearchCtrl', function($scope, $mdSidenav, $http, $mdToast, $route, searchFactory, authFactory) {
+  // $http.defaults.headers.common = '4588299-4a587cc35cb439120e3fe1260'
+  // $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=`, {
+  //   headers: {
+  //     'X-Mashape-Key' : 'jfS9AMR1wnmshvZpFflvUUg11Tnpp1iysnujsnLAfEXBSJCk9e'
+  //   }
+  // })
+  //   .then(function(gameData) {
+  //     console.log(gameData.data.result)
+  //     $scope.gameData = gameData.data.result
+  //   })
 
 
 
@@ -46,30 +50,35 @@ app.controller('SearchCtrl', function($scope, $mdSidenav, $http, $mdToast, searc
 // }
 
 $scope.sendCard = function(item) {
-  let sendRes = {
-    result: item,
+  console.log(item)
+    let gameObj = {
+      image: item.image.small_url,
+      name: item.name,
+      platform: item.platforms[0].name,
+      information: item.deck,
+      releaseDate: item.original_release_date,
+      siteDetail: item.site_detail_url,
+      likes: 0
   }
   $mdToast.show(
     $mdToast.simple()
     .textContent('Saved!')
-    .position('bottom right')
+    .position('top right')
     .hideDelay(800)
     );
-  $http.post('https://gamesole-d397d.firebaseio.com/pin/.json', JSON.stringify(sendRes))
+  $http.post('https://gamesole-d397d.firebaseio.com/pin/.json', JSON.stringify(gameObj))
 };
 
   $scope.Showme = function(item) {
-      console.log(item)  
-    $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=${item}`)
+      console.log(item, 'item')  
+    $http.get(`http://www.giantbomb.com/api/search?api_key=dc75e54a7566ebbd6a99e4edacb2840ae2f6a514&format=json&query="${item}"&resources=game`)
+    // $http.get(`https://ahmedakhan-game-review-information-v1.p.mashape.com/api/v1/search?game_name=${item}`)
     .then(function(search) {
     // searchFactory.getList()
-      console.log(search)
-      $scope.searchGameData = search.data.result
+      console.log(search.data.results)
+      $scope.searchGameData = search.data.results
   })
-    // .then(function(gameData) {
-    //   console.log(gameData)
-    //   $scope.gameData = gameData
-    // })
+
 };
 
   var vm = this;
