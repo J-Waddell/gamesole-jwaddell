@@ -1,5 +1,5 @@
 body {
-    background: #BDBDBD !important;
+    background: #616161 !important;
 }
 
 .commentBox {
@@ -57,7 +57,7 @@ body {
   box-shadow: 5px 5px 5px 5px #424242;
   border-radius: .3em;
   color: white;
-  height: 50em;
+  height: 40em;
   width: 100%;
 }
 
@@ -134,11 +134,12 @@ body {
 }
 
 .md-accent{
-  color: #455A64 !important;
+  color: #EEEEEE !important;
 }
 
 md-nav-bar md-nav-ink-bar{
-  color: #455A64 !important;
+  box-shadow: 3px 3px 3px 3px #424242;
+  color: #EEEEEE !important;
   background-color: #455A64 !important;
 }
 
