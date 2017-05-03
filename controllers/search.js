@@ -23,7 +23,7 @@ $scope.sendCard = function(item) {
 };
 
   $scope.Showme = function(item) {
-      console.log(item, 'item')  
+      console.log(item, 'item')
     $http.get(`http://www.giantbomb.com/api/search?api_key=dc75e54a7566ebbd6a99e4edacb2840ae2f6a514&format=json&query="${item}"&resources=game`)
     .then(function(search) {
       console.log(search.data.results)
@@ -65,7 +65,7 @@ $scope.sendCard = function(item) {
 });
 
 // app factory
-app.factory('searchFactory', function($http) {
+app.factory('searchFactory', function($http, $q) {
     return {
         getList : () => {
             return $http.get('https://gamesole-d397d.firebaseio.com/pin.json')

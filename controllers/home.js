@@ -1,12 +1,9 @@
 app.controller('HomeCtrl', function($scope, $http, $mdToast, $route, authFactory, searchFactory) {
-    console.log('HomeCtrl')
     searchFactory.getList()
     .then(function(res) {
-        console.log(res)
         $scope.res = res
     })
     $scope.deletePost = function(post, key) {
-        console.log(key)
         let delPost = {
             delete: post,
         }
@@ -20,7 +17,6 @@ app.controller('HomeCtrl', function($scope, $http, $mdToast, $route, authFactory
     }
 
     $scope.addComment = function(ting, key) {
-        console.log(key)
         let sendCom = {
             comment: ting,
         }
@@ -37,6 +33,7 @@ app.controller('HomeCtrl', function($scope, $http, $mdToast, $route, authFactory
             Image: $scope.img,
             comment: $scope.comment,
             uid: authFactory.getUserId(),
+            siteDetail: item.site_detail_url,
             likes: 0
         }
     console.log(gameRoute)
