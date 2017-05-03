@@ -27,7 +27,7 @@
   <ul ng-repeat="item in searchGameData" id="{{ $index + 1 }}">
 <div layout="" layout-align="space-around end">
   <md-card class="md-card">
-    <img ng-src="{{item.image.small_url}}" class="md-card-image" alt="image caption">
+    <img ng-src="{{item.image.small_url}}" class="md-card-image" alt="image caption" style="border-radius: .3;">
     <md-card-title>
       <md-card-title-text>
         <span class="md-result">{{item.name}}</span>
@@ -48,7 +48,7 @@
       <div ng-messages="message.comment.$error">
     </div>
         <md-button ng-click="" ng-message="required">Add to Home Before Commenting!</md-button>
-      <md-button ng-click="sendCard(item)" ng-href="/#/home"  class="save">
+      <md-button ng-click="sendCard(item)" class="save">
       <md-tooltip md-direction="right">Add to Home</md-tooltip>
       <md-icon class="material-icons">add_circle_outline</md-icon>
       </md-button>

@@ -10,7 +10,7 @@ html.md-default-theme, html {
   text-align: center;
   font-size: 5em;
   color: white;
-  opacity: .7;
+  opacity: .2;
 }
 
 .commentBox {
@@ -18,6 +18,7 @@ html.md-default-theme, html {
   box-shadow: 1px 1px 1px 1px #424242;
   border: 0 !important;
   border-radius: .3em;
+  opacity: .8;
 }
 
 .logoStyle {
@@ -30,6 +31,7 @@ html.md-default-theme, html {
 
 .homeTitle {
   color: #69F0AE;
+  opacity: .8;
 }
 
 .homeBody {
@@ -42,10 +44,12 @@ html.md-default-theme, html {
 
 .md-result {
   color: #455A64;
+  font-size: 3em;
 }
 
 .md-result2 {
   color: #212121;
+  font-size: 1em;
 }
 
 .comment {
@@ -63,8 +67,9 @@ html.md-default-theme, html {
 .md-card-image {
   width: 35em;
   height: 25em;
-  border-radius: .3em;
+  /*border-radius: 1em;*/
   align-self: center;
+  padding-top: 2em;
 }
 
 .md-card-image2 {
@@ -137,7 +142,7 @@ md-nav-bar md-nav-ink-bar{
 }
 
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
-    border-color: #69F0AE !important;
+  border-color: #69F0AE !important;
 }
 
 /*homepage styling*/
