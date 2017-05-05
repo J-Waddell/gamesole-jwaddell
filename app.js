@@ -1,3 +1,4 @@
+const electron = 
 const app = angular.module('game-sole', ['ngRoute', 'ngMaterial'])
 
  // Initialize Firebase
