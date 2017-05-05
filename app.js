@@ -1,4 +1,4 @@
-const electron = 
+
 const app = angular.module('game-sole', ['ngRoute', 'ngMaterial'])
 
  // Initialize Firebase
@@ -32,9 +32,13 @@ app.config(($routeProvider, $locationProvider) => {
           controller: 'HomeCtrl',
           templateUrl: 'partials/home.html'
         })
+        .when('/login', {
+          controller: 'LoginCtrl',
+          templateUrl: 'partials/login.html'
+        })
         .when('/', {
-            controller: 'LoginCtrl',
-            templateUrl: 'partials/login.html'
+            controller: 'HomeCtrl',
+            templateUrl: 'partials/home.html'
         })
         .when('/home/:result', {
             controller: 'HomeCtrl',
