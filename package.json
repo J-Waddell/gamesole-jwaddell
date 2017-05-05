@@ -1,0 +1,24 @@
+{
+  "name": "gamesole-jwaddell",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "electron-prebuilt": "^1.4.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-Waddell/gamesole-jwaddell.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/J-Waddell/gamesole-jwaddell/issues"
+  },
+  "homepage": "https://github.com/J-Waddell/gamesole-jwaddell#readme"
+}

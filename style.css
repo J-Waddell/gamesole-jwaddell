@@ -1,26 +1,28 @@
 body {
-    background: #616161 !important;
+  background-color: #616161;
+}
+
+html.md-default-theme, html {
+  background-color: #616161;
+}
+
+.searchSomething {
+  text-align: center;
+  font-size: 5em;
+  color: white;
+  opacity: .2;
 }
 
 .commentBox {
   background-color: #00897B;
-  box-shadow: 2px 2px 2px 2px #424242;
+  box-shadow: 1px 1px 1px 1px #424242;
+  border: 0 !important;
+  border-radius: .3em;
+  opacity: .8;
 }
 
 .logoStyle {
   box-shadow: 0em 1em 1em rgba(0,0,0,.5);
-}
-
-.pacman {
-  width: 80em;
-  height: 10em;
-  border-radius: .2em;
-}
-
-.avatar {
-  border-radius: 3.5em;
-  width: 10em;
-  height: 10em;
 }
 
 .sendBtn {
@@ -29,6 +31,7 @@ body {
 
 .homeTitle {
   color: #69F0AE;
+  opacity: .8;
 }
 
 .homeBody {
@@ -41,10 +44,12 @@ body {
 
 .md-result {
   color: #455A64;
+  font-size: 3em;
 }
 
 .md-result2 {
   color: #212121;
+  font-size: 1em;
 }
 
 .comment {
@@ -53,18 +58,18 @@ body {
 
 .md-card {
   background-color: #9E9E9E;
-  /*border: 1px black solid;*/
+  width: 50em;
   box-shadow: 5px 5px 5px 5px #424242;
   border-radius: .3em;
   color: white;
-  height: 40em;
-  width: 100%;
 }
 
 .md-card-image {
-  width: 100%;
-  height: 15em;
-  border-radius: .3em;
+  width: 35em;
+  height: 25em;
+  /*border-radius: 1em;*/
+  align-self: center;
+  padding-top: 2em;
 }
 
 .md-card-image2 {
@@ -93,10 +98,7 @@ body {
 }
 
 .material-icons.ng-scope {
-  /*width: 4em;*/
-  /*height: 3em;*/
   color: #69F0AE;
-  /*background-color: #BDBDBD !important;*/
 }
 
 .cardBG {
@@ -108,29 +110,25 @@ body {
 
 .backGroundPlz {
   background-color: #9E9E9E !important;
-  
 }
 
 .backGroundAgain {
-  /*background-color: #37474F !important;*/
   border-radius: .3em;
 }
 
 #logo {
-    border-radius: 5em;
-    width: 15em;
-    height: 13em;
+  border-radius: 5em;
+  width: 15em;
+  height: 13em;
 }
 
 .log1 {
-    border-color: #69F0AE;
+  border-color: #69F0AE;
 }
 
 .log2 {
-    /*background-color: #9E9E9E;*/
-    color: #424242;
-    border-radius: .5em;
-    /*box-shadow: 1px 1px 1px 2px #69F0AE;*/
+  color: #424242;
+  border-radius: .5em;
 }
 
 .md-accent{
@@ -144,7 +142,7 @@ md-nav-bar md-nav-ink-bar{
 }
 
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
-    border-color: #69F0AE !important;
+  border-color: #69F0AE !important;
 }
 
 /*homepage styling*/
@@ -187,7 +185,6 @@ md-sidenav md-list-item .md-button {
 ----------------------------*/
 md-toolbar:not(.md-menu-toolbar) {
   background-color: #424242;
-  /*color:#69F0AE;*/
 }
 /* Initial Styling
 -----------------*/
